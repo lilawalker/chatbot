@@ -3,6 +3,7 @@ import { createChatBotMessage } from 'react-chatbot-kit';
 
 import LearningOptions from './components/LearningOptions/LearningOptions';
 import LinkList from './components/LinkList/LinkList';
+import StaticData from './components/StaticData/StaticData';
 
 const config = {
   botName: 'ANDBot',
@@ -35,13 +36,33 @@ const config = {
             id: 1,
           },
           {
-            text: 'upside',
+            text: 'Upside',
             url: 'https://www.and.digital/our-work/upside',
             id: 2,
           },
           {
             text: 'Diageo',
             url: 'https://www.and.digital/our-work/diageo',
+            id: 3,
+          },
+        ],
+      },
+    },
+    {
+      widgetName: 'staticData',
+      widgetFunc: (props) => <StaticData {...props} />,
+      props: {
+        options: [
+          {
+            text: 'Wonder',
+            id: 1,
+          },
+          {
+            text: 'Share',
+            id: 2,
+          },
+          {
+            text: 'Delight',
             id: 3,
           },
         ],

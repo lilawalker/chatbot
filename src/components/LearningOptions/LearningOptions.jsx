@@ -4,15 +4,12 @@ import './LearningOptions.css';
 
 const LearningOptions = (props) => {
   const options = [
+    { text: 'Our Values', handler: props.actionProvider.handleValuesList, id: 1 },
     {
-      text: 'Clients',
+      text: 'Our Clients',
       handler: props.actionProvider.handleClientList,
-      id: 1,
+      id: 2,
     },
-    // { text: "Data visualization", handler: () => {}, id: 2 },
-    // { text: "APIs", handler: () => {}, id: 3 },
-    // { text: "Security", handler: () => {}, id: 4 },
-    // { text: "Interview prep", handler: () => {}, id: 5 },
   ];
 
   const optionsMarkup = options.map((option) => (

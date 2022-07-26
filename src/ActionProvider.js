@@ -4,16 +4,26 @@ class ActionProvider {
     this.setState = setStateFunc;
   }
 
-  // new method
   greet() {
     const greetingMessage = this.createChatBotMessage('Hi, ANDi.');
     this.updateChatbotState(greetingMessage);
   }
 
   handleClientList = () => {
-    const message = this.createChatBotMessage("Fantastic, I've got the following resources for you on AND Digital's clients:", {
+    const message = this.createChatBotMessage("Fantastic, here's some information on a few of AND Digital's clients:", {
       widget: 'clientLinks',
     });
+
+    this.updateChatbotState(message);
+  };
+
+  handleValuesList = () => {
+    const message = this.createChatBotMessage(
+      'Every ANDi follows the same three values. These values are what drives AND Digital to make an impact globally, whilst sharing our skills with each other and the wider community',
+      {
+        widget: 'staticData',
+      }
+    );
 
     this.updateChatbotState(message);
   };
