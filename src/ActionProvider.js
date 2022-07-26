@@ -1,10 +1,30 @@
 class ActionProvider {
-  constructor(createChatBotMessage, setStateFunc, createClientMessage, stateRef, createCustomMessage, ...rest) {
+  constructor(createChatBotMessage, setStateFunc) {
     this.createChatBotMessage = createChatBotMessage;
     this.setState = setStateFunc;
-    this.createClientMessage = createClientMessage;
-    this.stateRef = stateRef;
-    this.createCustomMessage = createCustomMessage;
+  }
+
+  // new method
+  greet() {
+    const greetingMessage = this.createChatBotMessage('Hi, ANDi.');
+    this.updateChatbotState(greetingMessage);
+  }
+
+  handleClientList = () => {
+    const message = this.createChatBotMessage("Fantastic, I've got the following resources for you on AND Digital's clients:", {
+      widget: 'clientLinks',
+    });
+
+    this.updateChatbotState(message);
+  };
+
+  updateChatbotState(message) {
+    // NOTICE: This function is set in the constructor, and is passed in from the top level Chatbot component. The setState function here actually manipulates the top level state of the Chatbot, so it's important that we make sure that we preserve the previous state.
+
+    this.setState((prevState) => ({
+      ...prevState,
+      messages: [...prevState.messages, message],
+    }));
   }
 }
 

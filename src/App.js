@@ -1,11 +1,13 @@
-import './App.css';
+import React from 'react';
 import Chatbot from 'react-chatbot-kit';
+import '/node_modules/react-chatbot-kit/build/main.css';
+import './App.css';
 
 import ActionProvider from './ActionProvider';
 import MessageParser from './MessageParser';
 import config from './config';
 
-const App = () => {
+function App() {
   return (
     <div className='App'>
       <header className='App-header'>
@@ -13,6 +15,6 @@ const App = () => {
       </header>
     </div>
   );
-};
+}
 
 export default App;
